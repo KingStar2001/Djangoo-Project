@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% block title %}about{% endblock title %}
+
+
+{% block body %}
+<style>
+    body {
+        background: linear-gradient(to bottom, #1e1e1e, #2c3e50); /* Gradient background */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #fff;
+    }
+    
+    .home-content {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 60px;
+        border-radius: 10px; /* Rounded corners */
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Box shadow */
+    }
+    
+    .home-content h3 {
+        font-size: 40px;
+        font-weight: 700;
+        opacity: 0;
+        animation: slideBottom 1s ease forwards;
+        animation-delay: 0.7s;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    
+    .home-content h3:nth-last-of-type(2) {
+        margin-bottom: 20px;
+        animation: slideTop 1s ease forwards;
+        animation-delay: 0.7s;
+    }
+    
+    .home-content h3 span {
+        color: #ffaf00; /* Golden yellow */
+    }
+    
+    .home-content h1 {
+        font-size: 60px;
+        font-weight: 900;
+        margin: -3px 0;
+        opacity: 0;
+        animation: slideRight 1s ease forwards;
+        animation-delay: 0.4s;
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    }
+    
+    .home-content p {
+        font-size: 18px;
+        line-height: 1.6;
+        opacity: 0;
+        animation: slideLeft 1s ease forwards;
+        animation-delay: .9s;
+    }
+    
+    .home-content p span {
+        color: #3498db; /* Blue */
+        font-weight: bold;
+    }
+    
+    /* Keyframe animations */
+    @keyframes slideBottom {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes slideTop {
+        from {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes slideRight {
+        from {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes slideLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    
+    
+</style>
+<div class="home-content">
+    <h3>Hello, It's Me</h3>
+    <h1>Shivank Mishra</h1>
+    <h3>Welcome to KingStar Industry<span class="multiple-text"></span></h3>
+    <p>
+      I have Mastered in skills like <span>HTML, CSS, JAVASCRIPT</span> in additional with languages like <span>C, C++, DSA(C++), JAVA, PYTHON</span> and Hands on Practice on <span>GOOGLE CLOUD CONSOLE PRACTITIONERS PATHWAY.</span> 
+    </p>
+</div>
+
+{% endblock body %}

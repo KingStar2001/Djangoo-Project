@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block title %}contact{% endblock title %}
+
+{% block body %}
+    <style>
+        body {
+            background: linear-gradient(to bottom, #1e1e1e, #2c3e50); /* Gradient background */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+        }
+        .form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f3f4f6;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.5s ease forwards;
+        }
+
+{% comment %} 
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f3f4f6;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.5s ease forwards;
+        } {% endcomment %}
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #fff; /* Updated color */
+            font-size: 36px; /* Increased font size */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow */
+        }
+        label {
+            font-weight: bold;
+            color: #555;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            border-color: #45a049;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <div class="form">
+        
+        <h2>Contact Us</h2>
+        <img src="/static/contact.jpeg" class="d-block w-100 my-2" alt="...">
+        <form method="post" action="/contact">
+            {% csrf_token %}
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject">
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+   
+{% endblock body %}
