@@ -1,0 +1,210 @@
+{% extends "base.html" %}
+
+{% block title %}Static{% endblock title %}
+ 
+{% block body %}
+
+<style>
+    body {
+        background: linear-gradient(to bottom right, #FFE0F0, #FFDAB9);  /* Lighter peach gradient */
+    }
+
+    .card {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust values as needed */
+        transition: transform 0.3s ease, z-index 0.3s ease; /* Added z-index transition */
+        position: relative; /* Added to allow z-index to work */
+        overflow: hidden; /* Ensure the overflow is hidden to prevent image overflow */
+    }
+    .card img {
+        transition: transform 0.3s ease;
+        width: 100%; /* Ensure the image takes up full width */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .card:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.5); /* Darker and more visible shadow on hover */
+        z-index: 1;
+    }
+
+    .card:hover img {
+        transform: scale(1.1); /* Increase the size of the image to 110% */
+    }
+</style>
+
+  <h1 class="display-4 text-center my-5 heading-background">Select Your Template!</h1>
+
+  <div class="album py-1">
+    <div class="container">
+      {% comment %} <h1 class="Projects">Templates...!</h1> {% endcomment %}
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      
+      
+        <div class="col">
+            <a href="temp1">
+                <div class="card shadow-sm">
+                    <img src="https://source.unsplash.com/1600x600/?river" class="d-block w-100" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <!-- Add your buttons or other content here if needed -->
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+      <div class="col">
+        <a href="temp2">
+        <div class="card shadow-sm">
+        <img src="https://source.unsplash.com/1600x600/?birds" class="d-block w-100" alt="...">
+          
+          <div class="card-body">
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              {% comment %} <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              </div> {% endcomment %}
+              {% comment %} <small class="text-body-secondary">9 mins</small> {% endcomment %}
+            </div>
+          </div>
+        </div>
+    </a>
+      </div>
+      <div class="col">
+        <a href="temp3">
+        <div class="card shadow-sm">
+        <img src="https://source.unsplash.com/1600x600/?town" class="d-block w-100" alt="...">
+          
+          <div class="card-body">
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              {% comment %} <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              </div> {% endcomment %}
+              {% comment %} <small class="text-body-secondary">9 mins</small> {% endcomment %}
+            </div>
+          </div>
+        </div>
+    </a>
+      </div>
+
+      <div class="col">
+        <a href="temp4">
+        <div class="card shadow-sm">
+        <img src="https://source.unsplash.com/1600x600/?nature" class="d-block w-100" alt="...">
+          
+          <div class="card-body">
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              {% comment %} <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              </div> {% endcomment %}
+              {% comment %} <small class="text-body-secondary">9 mins</small> {% endcomment %}
+            </div>
+          </div>
+        </div>
+    </a>
+      </div>
+      <div class="col">
+        <a href="temp5">
+        <div class="card shadow-sm">
+        <img src="https://source.unsplash.com/1600x600/?road" class="d-block w-100" alt="...">
+          
+          <div class="card-body">
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              {% comment %} <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              </div> {% endcomment %}
+              {% comment %} <small class="text-body-secondary">9 mins</small> {% endcomment %}
+            </div>
+          </div>
+        </div>
+    </a>
+      </div>
+      <div class="col">
+        <a href="temp6">
+        <div class="card shadow-sm">
+        <img src="https://source.unsplash.com/1600x600/?fish" class="d-block w-100" alt="...">
+          
+          <div class="card-body">
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              {% comment %} <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              </div> {% endcomment %}
+              {% comment %} <small class="text-body-secondary">9 mins</small> {% endcomment %}
+            </div>
+          </div>
+        </div>
+    </a>
+      </div>
+
+      <div class="col">
+        <a href="temp7">
+        <div class="card shadow-sm">
+        <img src="https://source.unsplash.com/1600x600/?fruit" class="d-block w-100" alt="...">
+          
+          <div class="card-body">
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              {% comment %} <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              </div> {% endcomment %}
+              {% comment %} <small class="text-body-secondary">9 mins</small> {% endcomment %}
+            </div>
+          </div>
+        </div>
+    </a>
+      </div>
+      <div class="col">
+        <a href="temp8">
+        <div class="card shadow-sm">
+        <img src="https://source.unsplash.com/1600x600/?food" class="d-block w-100" alt="...">
+          
+          <div class="card-body">
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              {% comment %} <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              </div> {% endcomment %}
+              {% comment %} <small class="text-body-secondary">9 mins</small> {% endcomment %}
+            </div>
+          </div>
+        </div>
+    </a>
+      </div>
+      <div class="col">
+        <a href="temp9">
+          <div class="card-body">
+        <div class="card shadow-sm">
+        <img src="https://source.unsplash.com/1600x600/?cafe" class="d-block w-100" alt="...">
+          
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              {% comment %} <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              </div> {% endcomment %}
+              {% comment %} <small class="text-body-secondary">9 mins</small> {% endcomment %}
+            </div>
+          </div>
+        </div>
+    </a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+{% endblock body %}
+  

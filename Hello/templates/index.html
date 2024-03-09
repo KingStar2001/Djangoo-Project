@@ -117,13 +117,37 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-md-6 d-flex justify-content-center">
-      <button type="button" class="btn btn-primary btn-lg">Static Template</button>
+      <button id="staticBtn" type="button" class="btn btn-primary btn-lg">Static Template</button>
     </div>
     <div class="col-md-6 d-flex justify-content-center">
-      <button type="button" class="btn btn-danger btn-lg">Customized Template</button>
+      <button id="customizedBtn" type="button" class="btn btn-danger btn-lg">Customized Template</button>
     </div>
   </div>
 </div>
+
+<!-- Bootstrap JS (optional, if you need other Bootstrap features) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  // Add click event listener to the static template button
+  document.getElementById('staticBtn').addEventListener('click', function() {
+    // Redirect to static page
+    window.location.href = 'static';
+  });
+
+  // Add click event listener to the customized template button
+  document.getElementById('customizedBtn').addEventListener('click', function() {
+    // Redirect to custom page
+    window.location.href = 'custom';
+  });
+</script>
+
 
 {% comment %} <div class="album py-5 bg-dark">
   <div class="container">
