@@ -18,22 +18,39 @@ def services(request):
     # return HttpResponse("This is services page")
     return render(request , 'services.html')
 def contact(request):
-    # return HttpResponse("This is contact page")
     if request.method == "POST":
         name = request.POST.get('name')
         email = request.POST.get('email')
         subject = request.POST.get('subject')
         message = request.POST.get('message')
-        contact = Contact(name=name, email=email, subject=subject, message=message, date=datetime.today())
+        projects = request.POST.get('projects')
+        experience = request.POST.get('experience')
+        resume = request.FILES.get('resume')
+        photos = request.FILES.get('photos')
+        
+        contact = Contact(
+            name=name,
+            email=email,
+            subject=subject,
+            message=message,
+            projects=projects,
+            experience=experience,
+            resume=resume,
+            photos=photos,
+            date=datetime.today()
+        )
         contact.save()
+        
         messages.success(request, "Your Message has been sent!")
+        
+        # Send email
         send_mail(
-    f'Contact Form Submission: {subject}',
-    f'Name: {name}\nEmail: {email}\nMessage: {message}',
-    email,  # Use the user-provided email address as the sender's email address
-    ['kingstar09122001@gmail.com'],  # Receiver's email address
-    fail_silently=False,
-)
+            f'Contact Form Submission: {subject}',
+            f'Name: {name}\nEmail: {email}\nMessage: {message}\nProjects: {projects}\nExperience: {experience}',
+            email,  # Use the user-provided email address as the sender's email address
+            ['kingstar09122001@gmail.com'],  # Receiver's email address
+            fail_silently=False,
+        )
 
         return HttpResponseRedirect('/contact')
     else:

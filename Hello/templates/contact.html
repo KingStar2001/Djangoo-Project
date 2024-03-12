@@ -3,118 +3,202 @@
 {% block title %}contact{% endblock title %}
 
 {% block body %}
-    <style>
-        body {
-            background: linear-gradient(to bottom, #1e1e1e, #2c3e50); /* Gradient background */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #fff;
-        }
-        .form {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #f3f4f6;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            animation: slideIn 0.5s ease forwards;
+<style>
+    body {
+        background: linear-gradient(to bottom, #1e1e1e, #2c3e50);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #101010;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .form {
+        width: 35%;
+        max-height: 190vh; /* Set a maximum height */
+        /* overflow-y: auto; Enable vertical scroll if needed */
+        padding: 25px; /* Increase depth of the box */
+        margin: 20px;
+        border-radius: 10px;
+        background-color: #f5f1f1;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        animation: slideIn 0.5s ease forwards;
+        text-align: left;
+        position: relative;
+    }
+
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-50px);
         }
 
-{% comment %} 
-        form {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #f3f4f6;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            animation: slideIn 0.5s ease forwards;
-        } {% endcomment %}
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    h2 {
+        text-align: center;
+        margin-bottom: 8px;
+        color: #3b3a3a;
+        font-size: 24px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
 
-        h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #fff; /* Updated color */
-            font-size: 36px; /* Increased font size */
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow */
-        }
-        label {
-            font-weight: bold;
-            color: #555;
-            display: block;
-            margin-bottom: 5px;
-        }
+    label {
+        font-weight: bold;
+        color: #555;
+        display: block;
+        margin-bottom: 3px;
+        font-size: 14px;
+    }
 
-        input[type="text"],
-        input[type="email"],
-        textarea {
-            width: 100%;
-            padding: 12px;
-            margin-top: 8px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            font-size: 16px;
-            transition: border-color 0.3s ease;
-        }
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        width: 100%;
+        padding: 8px;
+        margin-top: 4px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        box-sizing: border-box;
+        font-size: 14px;
+        transition: border-color 0.3s ease;
+    }
 
-        input[type="text"]:focus,
-        input[type="email"]:focus,
-        textarea:focus {
-            border-color: #45a049;
-        }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+        border-color: #45a049;
+    }
 
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 14px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-            font-size: 18px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: background-color 0.3s ease;
-        }
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: background-color 0.3s ease;
+        position: absolute;
+        right: 15px;
+        bottom: 6px; /* Lower the submit button further */
+    }
 
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-    </style>
-    <div class="form">
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    /* .custom-file-upload {
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+        background-color: #4CAF50;
+        color: rgb(252, 250, 250);
+        border: none;
+        border-radius: 3px;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: background-color 0.3s ease;
+    } */
+   
+.custom-file-upload-resume {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: rgb(252, 250, 250);
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 70px; /* Add margin-bottom to increase the gap */
+}
+.custom-file-upload-photos {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: rgb(252, 250, 250);
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 40px; /* Add margin-bottom to increase the gap */
+    position: absolute;
+    left: 240px; /* Adjust the right value to shift the button */
+    /* bottom: 20px; Adjust the bottom value if needed */
+}
+
+
+
+
+
+
+    .custom-file-upload:hover {
+        background-color: #45a049;
+    }
+
+    /* Hide default file input */
+    input[type="file"] {
+        display: none;
+    }
+</style>
+<div class="form">
+    <h2>Provide Details</h2>
+    <form method="post" action="/" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
         
-        <h2>Contact Us</h2>
-        <img src="/static/contact.jpeg" class="d-block w-100 my-2" alt="...">
-        <form method="post" action="/contact">
-            {% csrf_token %}
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="subject">Subject:</label>
-            <input type="text" id="subject" name="subject">
-            
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-            
-            <input type="submit" value="Submit">
-        </form>
-    </div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="subject">Skills</label>
+        <input type="text" id="subject" name="subject">
+        
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="2" required></textarea>
+        
+        <label for="projects">Projects:</label>
+        <textarea id="projects" name="projects" rows="2"></textarea>
+        
+        <label for="experience">Work Experience:</label>
+        <textarea id="experience" name="experience" rows="2"></textarea>
+        
+        <!-- <label for="education">Education:</label>
+        <textarea id="education" name="education" rows="4"></textarea> -->
+        
+        <!-- <label for="resume" class="custom-file-upload">Resume</label>
+        <input type="file" id="resume" name="resume" accept=".pdf" required> -->
+        <label for="resume" class="custom-file-upload-resume" style="margin-bottom: 20px;">Resume</label>
+<input type="file" id="resume" name="resume" accept=".pdf" required>
+
+        
+        <label for="photos" class="custom-file-upload-photos">Photos</label>
+        <input type="file" id="photos" name="photos" accept=".zip" required>
+        
+        <input type="submit" value="Submit">
+    </form>
+</div>
+<div>
+    
+</div>
    
 {% endblock body %}
