@@ -20,6 +20,7 @@ urlpatterns = [
     path("temp7", views.temp7, name='temp7'),
     path("temp8", views.temp8, name='temp8'),
     path("temp9", views.temp9, name='temp9'),
+    path("razorpay",views.razorpay, name='razorpay'),
 ]
 
 if settings.DEBUG:

@@ -52,7 +52,7 @@ def contact(request):
             fail_silently=False,
         )
 
-        return HttpResponseRedirect('/contact')
+        return HttpResponseRedirect('/razorpay')  # Redirect to the Razorpay page after successful form submission
     else:
         return render(request , 'contact.html')
     
@@ -78,4 +78,7 @@ def temp8(request):
     return render(request , 'temp8.html')
 def temp9(request):
     return render(request , 'temp9.html')
+def razorpay(request):
+    return render(request , 'razorpay.html')
+
 

@@ -1,28 +1,24 @@
 {% extends "base.html" %}
 
-{% block title %}service{% endblock title %}
+{% block title %}Customized{% endblock title %}
 
 {% block body %}
     <style>
         body {
-            background-color: #000000; /* Black background */
-            color: #eee; /* Text color */
+            background-image: url('/static/10.avif'); /* Add your background image URL here */
+            background-size: cover; /* Cover the entire body */
+            background-position: center top -140px; /* Center the background image vertically and position it at the top */
+            color: #333; /* Text color */
+            /* Optionally, you can also set background-repeat to prevent the image from repeating */
+            background-repeat: no-repeat;
         }
         /* Optionally, you can style the container div as well */
         .container {
-            background-color: transparent; /* Make sure the container doesn't have a background color */
-        }
-        @keyframes circularMove {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            /* Add any additional styling for the container if needed */
         }
     </style>
 
-    <div class="container" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-        <div style="text-align: center; font-size: 72px; position: relative;">
-            <div style="display: inline-block; position: relative; animation: circularMove 20s linear infinite; background: linear-gradient(to right, #8e2de2, #4a00e0, #ff3d00, #4caf50); -webkit-background-clip: text; color: transparent; background-clip: text;">
-                Coming soon...
-            </div>
-        </div>
+    <div class="container">
+        <!-- Your page content goes here -->
     </div>
 {% endblock body %}

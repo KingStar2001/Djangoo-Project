@@ -14,6 +14,7 @@
         justify-content: flex-end;
         align-items: center;
         height: 100vh;
+        overflow-y:hidden;
     }
 
     .form {
@@ -21,13 +22,15 @@
         max-height: 190vh; /* Set a maximum height */
         /* overflow-y: auto; Enable vertical scroll if needed */
         padding: 25px; /* Increase depth of the box */
-        margin: 20px;
+        margin: 36px;
         border-radius: 10px;
         background-color: #f5f1f1;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         animation: slideIn 0.5s ease forwards;
         text-align: left;
         position: relative;
+        top:2vh;
+        border-width: 4px;
     }
 
     @keyframes slideIn {
@@ -83,7 +86,7 @@
     input[type="submit"] {
         background-color: #4CAF50;
         color: white;
-        padding: 8px 16px;
+        padding: 8px 14px;
         border: none;
         border-radius: 3px;
         cursor: pointer;
@@ -92,8 +95,13 @@
         letter-spacing: 1px;
         transition: background-color 0.3s ease;
         position: absolute;
-        right: 15px;
-        bottom: 6px; /* Lower the submit button further */
+        /* transform: translateY(-50px); */
+        left: 20%;
+        transform: translateX(-50px);
+        /* left: 50px; */
+        
+        bottom: 40px; /* Lower the submit button further */
+        
     }
 
     input[type="submit"]:hover {
@@ -126,7 +134,10 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: background-color 0.3s ease;
-    margin-bottom: 70px; /* Add margin-bottom to increase the gap */
+    margin-bottom:100px; /* Add margin-bottom to increase the gap */
+    position: absolute;
+    left: 25px; /* Adjust the right value to shift the button */
+    bottom:10px;
 }
 .custom-file-upload-photos {
     display: inline-block;
@@ -140,14 +151,34 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: background-color 0.3s ease;
-    margin-bottom: 40px; /* Add margin-bottom to increase the gap */
+    margin-bottom: 0px; /* Add margin-bottom to increase the gap */
     position: absolute;
-    left: 240px; /* Adjust the right value to shift the button */
+    left: 190px; /* Adjust the right value to shift the button */
+    bottom:30px;
     /* bottom: 20px; Adjust the bottom value if needed */
 }
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 900; /* Adjust z-index as needed */
+}
 
-
-
+.template-container {
+    width: 35%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #f5f1f1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.5s ease forwards;
+    text-align: center;
+    position: absolute;
+    top: 30%;
+    border-width: 4px;
+    left:10%;
+    bottom: 220px;
+}
 
 
 
@@ -159,11 +190,57 @@
     input[type="file"] {
         display: none;
     }
+    input[type="submit"] {
+        position: relative;
+        right: -130px;
+        top: 20px; /* Adjust this value as needed */
+        background: linear-gradient(to right, #4CAF50, #008000);
+    }
+    input[type="submit"]:hover {
+        background: linear-gradient(to right, #008000, #4CAF50); /* Reverse gradient on hover */
+    }
 </style>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+       
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">KingStar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact</a>
+          </li>
+        </ul>
+        <form class="d-flex justify-content-end" role="search"> <!-- Updated class: d-flex justify-content-end -->
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+    {% comment %} <div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0" role="alert">
+        <!-- <strong>{{ message }}</strong> -->
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div> {% endcomment %}
+  </nav>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+  
+</script>
 <div class="form">
     <h2>Provide Details</h2>
     <form method="post" action="/contact" enctype="multipart/form-data">
-        {% csrf_token %}
+        <!-- {% csrf_token %} -->
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
         
@@ -189,10 +266,13 @@
         <input type="file" id="resume" name="resume" accept=".pdf" required> -->
         <label for="resume" class="custom-file-upload-resume" style="margin-bottom: 20px;">Resume</label>
 <input type="file" id="resume" name="resume" accept=".pdf" required>
+<span style="font-size: small; margin-left: 100px;position: relative; top: 7px;">*.pdf only</span>
+
 
         
         <label for="photos" class="custom-file-upload-photos">Photos</label>
         <input type="file" id="photos" name="photos" accept=".zip" required>
+        <span style="font-size: small; margin-left: 100px;position: relative; top: 7px;">*.zip only</span>
         
         <input type="submit" value="Submit">
     </form>
@@ -200,5 +280,25 @@
 <div>
     
 </div>
+<div class="template-container">
+  <h2>Selected Template</h2>
+  <img id="lastVisitedImage" alt="Selected Template Image" style="max-width: 100%; max-height: 80%; border-radius: 10px; align-self: normal;">
+  <!-- Code to display selected template -->
+  <!-- Example: -->
+  <!-- <div>
+      <p>This is your selected template content.</p>
+  </div> -->
+</div>
+
+<script>
+    // Retrieve the last visited image source from local storage
+    var lastVisitedImageSrc = localStorage.getItem('lastVisitedImage');
+  
+    // Display the image on the contact page
+    if (lastVisitedImageSrc) {
+      var imgElement = document.getElementById('lastVisitedImage');
+      imgElement.src = lastVisitedImageSrc;
+    }
+  </script>
    
 {% endblock body %}
