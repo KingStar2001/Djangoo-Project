@@ -97,11 +97,11 @@
       var mobile = document.getElementById("mobile").value;
       var options = {
         key: "rzp_test_lOjq6ng7k1pURY", // Enter the Key ID generated from the Dashboard
-        amount: "300000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+        amount: "30000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
         currency: "INR",
         name: "KingStar",
         description: "Test Transaction",
-        image: "/static/KingStar.png",
+        image: "/static/logo3.png",
         //"order_id": "order_IluGWxBm9U8zJ8", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
         handler: function (response) {
           alert(response.razorpay_payment_id);
